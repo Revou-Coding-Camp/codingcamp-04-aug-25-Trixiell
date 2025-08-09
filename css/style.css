@@ -1,0 +1,214 @@
+/* General Styling & Variables */
+:root {
+    --bg-color: #1a1a2e;
+    --card-bg-color: #24243e;
+    --primary-color: #4a4e69;
+    --secondary-color: #9a8c98;
+    --accent-color: #c9ada7;
+    --text-color: #f2e9e4;
+    --success-color: #4CAF50;
+    --danger-color: #F44336;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 50px;
+}
+
+/* Main Container */
+.container {
+    background-color: var(--card-bg-color);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 600px;
+}
+
+header h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+/* Form Styling */
+.todo-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.todo-input, .todo-date {
+    flex-grow: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.todo-input::placeholder {
+    color: var(--secondary-color);
+}
+
+.todo-date::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+.add-btn {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+.add-btn:hover {
+    background-color: #d4b8b2;
+}
+
+/* Controls: Filter & Delete All */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.filter-container {
+    position: relative;
+}
+
+.filter-todo {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border: 1px solid var(--primary-color);
+    padding: 0.5rem 2rem 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.filter-container::after {
+    content: "\25BC"; /* Down arrow */
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--text-color);
+}
+
+.delete-all-btn {
+    background-color: var(--danger-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-all-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* Todo List Styling */
+.todo-list-container {
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    padding: 1rem;
+    min-height: 100px;
+    position: relative;
+}
+
+.todo-list {
+    list-style: none;
+}
+
+.todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--card-bg-color);
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.todo:last-child {
+    margin-bottom: 0;
+}
+
+.todo.completed {
+    opacity: 0.6;
+}
+
+.todo.completed .todo-item-text {
+    text-decoration: line-through;
+}
+
+.todo-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-item-text {
+    font-size: 1.1rem;
+}
+
+.todo-item-date {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    margin-top: 4px;
+}
+
+.todo-actions button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.complete-btn {
+    color: var(--success-color);
+}
+
+.delete-btn {
+    color: var(--danger-color);
+}
+
+.no-task-message {
+    text-align: center;
+    color: var(--secondary-color);
+    padding: 1rem;
+    display: none; /* Initially hidden */
+}
+
+/* Utility Classes */
+.hidden {
+    display: none;
+}
